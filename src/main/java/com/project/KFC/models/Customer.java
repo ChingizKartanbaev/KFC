@@ -17,4 +17,12 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
+    @OneToOne
+    @JoinColumn(name = "purchas_id")
+    Purchases purchases;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    User user;
 }
