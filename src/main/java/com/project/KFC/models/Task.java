@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_category")
+@Table(name = "tb_task")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Task {
 

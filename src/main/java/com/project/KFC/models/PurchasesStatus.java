@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_user")
+@Table(name = "tb_purchases_status")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class PurchasesStatus {
 
