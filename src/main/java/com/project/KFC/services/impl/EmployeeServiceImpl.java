@@ -22,12 +22,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee save(Employee t) {
-        return null;
+        return rep.save(t);
     }
 
     @Override
     public Employee findById(Long id) {
-        return null;
+        return rep.findById(id).orElseThrow(()->new RuntimeException("not found"));
     }
 
     @Override
@@ -42,7 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<Employee> findAll() {
-        return null;
+        return rep.findAll();
     }
 
     @Override
