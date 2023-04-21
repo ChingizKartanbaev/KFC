@@ -19,7 +19,7 @@ public class Customer {
     Long id;
 
     @OneToOne
-    @JoinColumn(name = "purchas_id")
+    @JoinColumn(name = "purchas_id", nullable = true)
     Purchases purchases;
 
     @OneToOne

@@ -52,11 +52,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public String auth(String login, String password) {
         if (customerService.findCustomer(login,password)){
-            return "customer";
+            return "Customer";
         } else if (employeeService.findEmployee(login,password)){
-            return employeeService.employeePosition(login,password);
+            return employeeService.getEmployee().getPosition().getPosition();
         } else if(login.equals("admin") && password.equals("admin")){
-            return "admin";
+            return "Admin";
         } else {
             return "error";
         }

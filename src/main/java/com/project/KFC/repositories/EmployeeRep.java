@@ -17,19 +17,11 @@ public interface EmployeeRep extends JpaRepository<Employee, Long> {
     boolean findEmployeeByByLoginAndPassword(String login, String password);
 
     @Query(value = "\n"+
-            "select employee.id\n" +
+            "select *\n" +
             "from tb_employee as employee\n" +
             "INNER join tb_user as users\n" +
             "on employee.user_id=users.id\n" +
             "WHERE users.login=:login AND users.password=:password", nativeQuery = true)
-    Long findEmployeeId(String login, String password);
-
-    @Query(value = "\n" +
-            "select positions.position\n" +
-            "from tb_employee as employee\n" +
-            "INNER join tb_position as positions\n" +
-            "on employee.position_id=positions.id" +
-            "WHERE employee.id=:id", nativeQuery = true)
-    String employeePosition(Long id);
+    Employee findEmployeeId(String login, String password);
 
 }

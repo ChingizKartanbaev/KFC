@@ -13,6 +13,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRep rep;
 
+    private Employee employee;
+
     @Autowired
     public EmployeeServiceImpl(EmployeeRep rep) {
         this.rep = rep;
@@ -45,16 +47,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public boolean findEmployee(String login, String password) {
+        employee = rep.findEmployeeId(login, password);
         return rep.findEmployeeByByLoginAndPassword(login,password);
     }
 
     @Override
-    public Long findEmployeeId(String login, String password) {
-        return rep.findEmployeeId(login, password);
-    }
-
-    @Override
-    public String employeePosition(String login, String password) {
-        return rep.employeePosition(findEmployeeId(login,password));
+    public Employee getEmployee() {
+        return employee;
     }
 }
