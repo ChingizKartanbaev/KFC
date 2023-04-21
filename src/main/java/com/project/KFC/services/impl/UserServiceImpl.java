@@ -1,5 +1,6 @@
 package com.project.KFC.services.impl;
 
+import com.project.KFC.models.Customer;
 import com.project.KFC.models.User;
 import com.project.KFC.repositories.UserRep;
 import com.project.KFC.services.CustomerService;
@@ -26,12 +27,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User t) {
-        return null;
+        return rep.save(t);
     }
 
     @Override
     public User findById(Long id) {
-        return null;
+        return rep.findById(id).orElseThrow(()->new RuntimeException("not found"));
     }
 
     @Override
@@ -45,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        return null;
+        return rep.findAll();
     }
 
 
@@ -60,5 +61,12 @@ public class UserServiceImpl implements UserService {
         } else {
             return "error";
         }
+    }
+
+    @Override
+    public void saveCustomer(User user) {
+        Customer customer = new Customer();
+        customer.setUser(rep.save(user));
+        customerService.save(customer);
     }
 }

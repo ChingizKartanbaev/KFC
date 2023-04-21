@@ -20,12 +20,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer save(Customer t) {
-        return null;
+        return rep.save(t);
     }
 
     @Override
     public Customer findById(Long id) {
-        return null;
+        return rep.findById(id).orElseThrow(()-> new RuntimeException("not found"));
     }
 
     @Override
@@ -40,7 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> findAll() {
-        return null;
+        return rep.findAll();
     }
 
     @Override
