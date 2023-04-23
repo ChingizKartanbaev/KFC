@@ -12,6 +12,7 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRep rep;
+    private Customer customer;
 
     @Autowired
     public CustomerServiceImpl(CustomerRep rep) {
@@ -45,6 +46,17 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public boolean findCustomer(String login, String password) {
+        customer = rep.findCustomer(login, password);
         return rep.findCustomerByByLoginAndPassword(login, password);
+    }
+
+    @Override
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    @Override
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

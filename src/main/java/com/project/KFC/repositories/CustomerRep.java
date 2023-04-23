@@ -15,4 +15,12 @@ public interface CustomerRep extends JpaRepository<Customer, Long> {
             "on customer.user_id=users.id\n" +
             "WHERE users.login=:login AND users.password=:password", nativeQuery = true)
     boolean findCustomerByByLoginAndPassword(String login, String password);
+
+    @Query(value = "\n"+
+            "select *\n" +
+            "from tb_customer as customer\n" +
+            "INNER join tb_user as users\n" +
+            "on customer.user_id=users.id\n" +
+            "WHERE users.login=:login AND users.password=:password", nativeQuery = true)
+    Customer findCustomer(String login, String password);
 }

@@ -55,4 +55,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee getEmployee() {
         return employee;
     }
+
+    @Override
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    @Override
+    public String changeSalaryUp(Long id, double newSalary) {
+        Employee employee1 = findById(id);
+        employee1.setSalary(employee1.getSalary()+newSalary);
+        save(employee1);
+        return "success";
+    }
 }

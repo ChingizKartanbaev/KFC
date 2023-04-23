@@ -69,4 +69,11 @@ public class UserServiceImpl implements UserService {
         customer.setUser(rep.save(user));
         customerService.save(customer);
     }
+
+    @Override
+    public void logout() {
+        customerService.setCustomer(null);
+        employeeService.setEmployee(null);
+    }
+
 }

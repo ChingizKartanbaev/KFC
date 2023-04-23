@@ -21,20 +21,24 @@ public class AuthController {
         return "login/login";
     }
 
+    @GetMapping("/logout")
+    public String logout() {
+        userService.logout();
+        return "redirect:/main";
+    }
+
     @PostMapping("/check")
     public String check(@RequestParam String login, @RequestParam String password) {
         String role = userService.auth(login, password);
         switch (role) {
             case "Customer":
-                return "redirect:/auth";
-            case "Manager":
-                return "redirect:/auth";
-            case "Director":
-                return "redirect:/auth";
+                return "redirect:/customer";
+            case "Manager", "Director":
+                return "redirect:/employee";
             case "Admin":
                 return "redirect:/auth";
             case "error":
-                return "redirect/test";
+                return "redirect:/test";
         }
         return "redirect:/auth";
     }
