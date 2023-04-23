@@ -15,7 +15,6 @@
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
                     <th scope="col">Last Name</th>
-                    <th scope="col">Birthday</th>
                     <th scope="col">Salary</th>
                     <th scope="col">Position</th>
                     <th scope="col">Change salary</th>
@@ -26,7 +25,6 @@
                     <th scope="row"><a th:text="${worker.getId()}">id</a></th>
                     <td><a th:text="${worker.getUser().getFirstName()}">firstName</a></td>
                     <td><a th:text="${worker.getUser().getLastName()}">firstName</a></td>
-                    <td><a th:text="${worker.getUser().getBirhtdate()}">birthday</a></td>
                     <td><a th:text="${worker.getSalary()}">salary</a></td>
                     <td><a th:text="${worker.getPosition().getPosition()}">position</a></td>
                     <td style="width: 125px">
