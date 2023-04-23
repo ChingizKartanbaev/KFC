@@ -31,14 +31,28 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}/editSalaryUp")
-    public String edit(Model model, @PathVariable("id") Long id) {
+    public String upSalary(Model model, @PathVariable("id") Long id) {
         model.addAttribute("worker", employeeService.findById(id));
-        return "director/formToCahngeSalary";
+        return "director/formToChangeSalary";
     }
 
-    @PutMapping("/{id}")
-    public String update(@ModelAttribute("salary")double salary, @PathVariable("id") Long id) {
+
+    @PutMapping("/{id}/Up")
+    public String updateUp(@ModelAttribute("salary")double salary, @PathVariable("id") Long id) {
         employeeService.changeSalaryUp(id, salary);
+        return "redirect:/employee/showAllWorkers";
+    }
+
+    @GetMapping("/{id}/editSalaryLow")
+    public String lowSalary(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("worker", employeeService.findById(id));
+        return "director/formToChangeSalaryLow";
+    }
+
+
+    @PutMapping("/{id}/Low")
+    public String updateLow(@ModelAttribute("salary")double salary, @PathVariable("id") Long id) {
+        employeeService.changeSalaryLow(id, salary);
         return "redirect:/employee/showAllWorkers";
     }
 

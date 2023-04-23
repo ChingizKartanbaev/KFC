@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="container">
-    <form th:method="PUT" th:action="@{/employee/{id}(id=${worker.getId()})}" th:object="${worker}">
+    <form th:method="PUT" th:action="@{/employee/{id}/Low(id=${worker.getId()})}" th:object="${worker}">
       <div class="mb-3">
         <label for="salary" class="form-label">New Salary</label>
         <input type="number" class="form-control" id="salary" name="salary">

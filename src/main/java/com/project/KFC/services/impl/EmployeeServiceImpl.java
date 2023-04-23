@@ -68,4 +68,15 @@ public class EmployeeServiceImpl implements EmployeeService {
         save(employee1);
         return "success";
     }
+
+    @Override
+    public String changeSalaryLow(Long id, double newSalary) {
+        Employee employee1 = findById(id);
+        if (employee1.getSalary() - newSalary > 0){
+            employee1.setSalary(employee1.getSalary() - newSalary);
+            save(employee1);
+            return "success";
+        }
+        return "fail";
+    }
 }

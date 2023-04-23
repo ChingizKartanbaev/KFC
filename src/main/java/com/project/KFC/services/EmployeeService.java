@@ -11,4 +11,6 @@ public interface EmployeeService extends BaseService<Employee> {
     void setEmployee(Employee employee);
 
     String changeSalaryUp(Long id, double newSalary);
+
+    String changeSalaryLow(Long id, double newSalary);
 }
