@@ -5,8 +5,8 @@ The employee control system for KFC is designed to make life easier for those wh
 
 ## Authors
 
-- [@AkkisRa](https://github.com/AkkisRa)
-- [@BekturMaasaliev](https://github.com/BekturMaasaliev)
+- [@Akylai](https://github.com/AkkisRa)
+- [@Bektur](https://github.com/BekturMaasaliev)
 - [@Chingiz](https://github.com/Operans)
 
 ## Run Locally
@@ -36,6 +36,9 @@ To start program
   Then write in the address bar: localhost:8086 (The port may change depending on what you specified in application.properties)
 ```
 
+  ## Technical requirement RUSSIAN
+
+[KFC](https://docs.google.com/document/d/1-ZLSsOMkuq5MxGo1SS_3LuVPwi6DY3qcDNPD5UYPF8Y/edit?usp=sharing)
 
 ## Documentation RUSSIAN
 
