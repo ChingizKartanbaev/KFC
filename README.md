@@ -49,5 +49,6 @@ To start program
 
 If you have any feedback, please reach out to us at @there will be our mail@
 
-![Без имени](https://user-images.githubusercontent.com/97016997/203571952-5a9ecc70-4a90-4557-9079-7e11eda45229.png)
+![Без имени](https://user-images.githubusercontent.com/97016997/233830784-5f453e8d-c3d6-4a3f-a2f7-6295f93b07c3.png)
+
 
