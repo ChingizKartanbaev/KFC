@@ -38,7 +38,7 @@ public class AuthController {
             case "Admin":
                 return "redirect:/auth";
             case "error":
-                return "redirect:/test";
+                return "redirect:/main/error";
         }
         return "redirect:/auth";
     }

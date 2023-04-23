@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Edit</title>
+</head>
+<body>
+<form th:method="PUT" th:action="@{/employee/updatePersonalData/{id}(id=${workerData.getId()})}" th:object="${workerData}">
+    <div>
+        <p class="ordering-title">Enter First Name:</p>
+        <input type="text" class="ordering-input" th:field="*{firstName}" id="firstName"/>
+    </div>
+    <div>
+        <p class="ordering-title">Enter First Name:</p>
+        <input type="text" class="ordering-input" th:field="*{lastName}" id="lastName"/>
+    </div>
+    <div>
+        <p class="ordering-title">Enter First Name:</p>
+        <input type="date" class="ordering-input" th:field="*{birhtdate}" id="birhtdate"/>
+    </div>
+    <div class="wrapper btn-wrapper">
+        <button type="submit" class="btn">Update</button>
+    </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

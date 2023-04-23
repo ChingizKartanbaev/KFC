@@ -1,8 +1,10 @@
 package com.project.KFC.services.impl;
 
 import com.project.KFC.models.Employee;
+import com.project.KFC.models.User;
 import com.project.KFC.repositories.EmployeeRep;
 import com.project.KFC.services.EmployeeService;
+import com.project.KFC.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,6 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRep rep;
-
     private Employee employee;
 
     @Autowired

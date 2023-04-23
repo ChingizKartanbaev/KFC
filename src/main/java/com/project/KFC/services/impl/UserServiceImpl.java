@@ -1,6 +1,7 @@
 package com.project.KFC.services.impl;
 
 import com.project.KFC.models.Customer;
+import com.project.KFC.models.Employee;
 import com.project.KFC.models.User;
 import com.project.KFC.repositories.UserRep;
 import com.project.KFC.services.CustomerService;
@@ -74,6 +75,15 @@ public class UserServiceImpl implements UserService {
     public void logout() {
         customerService.setCustomer(null);
         employeeService.setEmployee(null);
+    }
+
+    @Override
+    public User updateEmployee(Long id, User user) {
+        User user1 = findById(id);
+        user1.setFirstName(user.getFirstName());
+        user1.setLastName(user.getLastName());
+        user1.setBirhtdate(user.getBirhtdate());
+        return save(user);
     }
 
 }

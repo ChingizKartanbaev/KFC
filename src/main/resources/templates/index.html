@@ -66,14 +66,21 @@
                     <li>
                         <div th:if="${customer == null}">
                             <div th:if="${user != null && (employee.getPosition().getPosition().equals('Manager') || employee.getPosition().getPosition().equals('Director'))}">
-                                <a href="">List of workers</a>
+                                <a href="/employee/getAllWorkers">List of workers</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${customer == null}">
+                            <div th:if="${user != null && (employee.getPosition().getPosition().equals('Manager') || employee.getPosition().getPosition().equals('Director'))}">
+                                <a href="">View reviews</a>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div th:if="${customer == null}">
                             <div th:if="${user != null && employee.getPosition().getPosition().equals('Director')}">
-                                <a href="">Add or Delete worker</a>
+                                <a href="/employee/workersControl">Add or Delete worker</a>
                             </div>
                         </div>
                     </li>

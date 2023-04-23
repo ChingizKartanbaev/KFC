@@ -8,10 +8,10 @@
 <body>
   <div class="container">
     <form th:method="PUT" th:action="@{/employee/{id}/Up(id=${worker.getId()})}" th:object="${worker}">
-      <div class="mb-3">
-        <label for="salary" class="form-label">New Salary</label>
-        <input type="number" class="form-control" id="salary" name="salary">
-        <div id="emailHelp" class="form-text">Now salary is <span th:text="${worker.getSalary()}">value</span></div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <span class="input-group-text" th:text="${worker.getSalary()}">0.00</span>
+        <input  type="number" class="form-control" id="salary" name="salary"aria-label="Dollar amount (with dot and two decimal places)">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
