@@ -5,6 +5,7 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -21,7 +22,7 @@ public class Employee extends BaseModel{
     Long id;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
-    Date hireDate;
+    LocalDateTime hireDate;
 
     double salary;
 
