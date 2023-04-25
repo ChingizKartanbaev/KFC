@@ -64,6 +64,27 @@
                         <a href="/main/contact">Contact Us</a>
                     </li>
                     <li>
+                        <div th:if="${employee == null}">
+                            <div th:if="${user != null}">
+                                <a href="">Make an order</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${employee == null}">
+                            <div th:if="${user != null}">
+                                <a href="">Check the order</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${employee == null}">
+                            <div th:if="${user != null}">
+                                <a href="">Leave a review</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
                         <div th:if="${customer == null}">
                             <div th:if="${user != null && (employee.getPosition().getPosition().equals('Manager') || employee.getPosition().getPosition().equals('Director'))}">
                                 <a href="/employee/getAllWorkers">List of workers</a>
