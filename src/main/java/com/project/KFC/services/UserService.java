@@ -14,6 +14,6 @@ public interface UserService extends BaseService<User> {
 
     User updateEmployee(Long id, User user);
 
-    Employee saveWorker(UserEmployee userEmployee);
+    void saveWorker(UserEmployee userEmployee);
 
 }

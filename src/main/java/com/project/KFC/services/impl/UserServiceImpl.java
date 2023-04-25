@@ -91,9 +91,8 @@ public class UserServiceImpl implements UserService {
         return save(user);
     }
 
-
     @Override
-    public Employee saveWorker(UserEmployee userEmployee) {
+    public void saveWorker(UserEmployee userEmployee) {
         User user = new User();
         Employee employee = new Employee();
 
@@ -110,7 +109,5 @@ public class UserServiceImpl implements UserService {
         employee.setPosition(userEmployee.getPosition());
 
         employeeService.save(employee);
-
-        return null;
     }
 }
