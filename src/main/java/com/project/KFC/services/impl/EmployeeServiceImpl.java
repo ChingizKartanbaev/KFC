@@ -33,7 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void delete(Long id) {
-
+        rep.softDelete(id);
     }
 
     @Override
@@ -79,5 +79,10 @@ public class EmployeeServiceImpl implements EmployeeService {
             return "success";
         }
         return "fail";
+    }
+
+    @Override
+    public List<Employee> findAllActiveWorker() {
+        return rep.findAllByActiveIsTrue();
     }
 }

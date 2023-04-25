@@ -43,7 +43,7 @@ public class EmployeeController {
 
     @GetMapping("/workersControl")
     public String workersControl(Model model){
-        model.addAttribute("workers", employeeService.findAll());
+        model.addAttribute("workers", employeeService.findAllActiveWorker());
         return "director/controlWorker";
     }
 
@@ -59,13 +59,17 @@ public class EmployeeController {
         return "redirect:/employee/workersControl";
     }
 
+    @PutMapping("/delete/{id}")
+    public String deleteWorker(@PathVariable("id") Long id){
+        employeeService.delete(id);
+        return "redirect:/employee/workersControl";
+    }
 
     @GetMapping("/{id}/editSalaryUp")
     public String upSalary(Model model, @PathVariable("id") Long id) {
         model.addAttribute("worker", employeeService.findById(id));
         return "director/formToChangeSalary";
     }
-
 
     @PutMapping("/{id}/Up")
     public String updateUp(@ModelAttribute("salary")double salary, @PathVariable("id") Long id) {
@@ -78,7 +82,6 @@ public class EmployeeController {
         model.addAttribute("worker", employeeService.findById(id));
         return "director/formToChangeSalaryLow";
     }
-
 
     @PutMapping("/{id}/Low")
     public String updateLow(@ModelAttribute("salary")double salary, @PathVariable("id") Long id) {
