@@ -14,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Table(name = "tb_user")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class User {
+public class User extends BaseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
