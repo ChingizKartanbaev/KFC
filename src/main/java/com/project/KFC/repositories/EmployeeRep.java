@@ -17,7 +17,7 @@ public interface EmployeeRep extends JpaRepository<Employee, Long> {
             "from tb_employee as employee\n" +
             "INNER join tb_user as users\n" +
             "on employee.user_id=users.id\n" +
-            "WHERE users.login=:login AND users.password=:password", nativeQuery = true)
+            "WHERE users.login=:login AND users.password=:password AND users.active = true AND employee.active = true", nativeQuery = true)
     boolean findEmployeeByByLoginAndPassword(String login, String password);
 
     @Query(value = "\n"+
