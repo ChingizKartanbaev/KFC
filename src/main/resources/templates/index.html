@@ -32,7 +32,7 @@
 <body class="main-layout">
     <!-- loader  -->
     <div class="loader_bg">
-        <div class="loader"><img src="images/loading.gif" alt="" /></div>
+        <div class="loader"><img src="images/loading.gif" alt=""/></div>
     </div>
     <!-- end loader -->
 
@@ -49,19 +49,19 @@
                 <ul class="list-unstyled components">
 
                     <li class="active">
-                        <a href="index.html">Home</a>
+                        <a href="/main">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="/main/about">About</a>
                     </li>
                     <li>
                         <a href="recipe.html">Recipe</a>
                     </li>
                     <li>
-                        <a href="blog.html">Blog</a>
+                        <a href="/main/blog">Blog</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact Us</a>
+                        <a href="/main/contact">Contact Us</a>
                     </li>
                     <li>
                         <div th:if="${customer == null}">
@@ -463,11 +463,11 @@
                     </div>
                     <div class="col-md-12">
                         <ul class="lik">
-                            <li class="active"> <a href="index.html">Home</a></li>
-                            <li> <a href="about.html">About</a></li>
+                            <li class="active"> <a href="/main">Home</a></li>
+                            <li> <a href="/main/about">About</a></li>
                             <li> <a href="recipe.html">Recipe</a></li>
-                            <li> <a href="blog.html">Blog</a></li>
-                            <li> <a href="contact.html">Contact us</a></li>
+                            <li> <a href="/main/blog">Blog</a></li>
+                            <li> <a href="/main/contact">Contact us</a></li>
                         </ul>
                     </div>
                     <div class="col-md-12">
