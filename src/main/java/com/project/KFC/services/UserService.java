@@ -1,6 +1,7 @@
 package com.project.KFC.services;
 
 import com.project.KFC.models.Employee;
+import com.project.KFC.models.Response.UserEmployee;
 import com.project.KFC.models.User;
 
 public interface UserService extends BaseService<User> {
@@ -12,4 +13,7 @@ public interface UserService extends BaseService<User> {
     void logout();
 
     User updateEmployee(Long id, User user);
+
+    Employee saveWorker(UserEmployee userEmployee);
+
 }

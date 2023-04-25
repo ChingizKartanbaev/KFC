@@ -1,6 +1,7 @@
 package com.project.KFC.services;
 
 import com.project.KFC.models.Employee;
+import com.project.KFC.models.Response.UserEmployee;
 
 import java.util.List;
 
@@ -17,4 +18,5 @@ public interface EmployeeService extends BaseService<Employee> {
     String changeSalaryLow(Long id, double newSalary);
 
     List<Employee> findAllActiveWorker();
+
 }

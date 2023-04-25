@@ -1,6 +1,7 @@
 package com.project.KFC.services.impl;
 
 import com.project.KFC.models.Employee;
+import com.project.KFC.models.Response.UserEmployee;
 import com.project.KFC.models.User;
 import com.project.KFC.repositories.EmployeeRep;
 import com.project.KFC.services.EmployeeService;
@@ -85,4 +86,5 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> findAllActiveWorker() {
         return rep.findAllByActiveIsTrue();
     }
+
 }

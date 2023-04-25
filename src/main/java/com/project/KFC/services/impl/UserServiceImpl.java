@@ -2,6 +2,7 @@ package com.project.KFC.services.impl;
 
 import com.project.KFC.models.Customer;
 import com.project.KFC.models.Employee;
+import com.project.KFC.models.Response.UserEmployee;
 import com.project.KFC.models.User;
 import com.project.KFC.repositories.UserRep;
 import com.project.KFC.services.CustomerService;
@@ -10,6 +11,8 @@ import com.project.KFC.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -88,4 +91,26 @@ public class UserServiceImpl implements UserService {
         return save(user);
     }
 
+
+    @Override
+    public Employee saveWorker(UserEmployee userEmployee) {
+        User user = new User();
+        Employee employee = new Employee();
+
+        user.setFirstName(userEmployee.getUser().getFirstName());
+        user.setLastName(userEmployee.getUser().getLastName());
+        user.setBirhtdate(userEmployee.getUser().getBirhtdate());
+        user.setLogin(userEmployee.getUser().getLogin());
+        user.setPassword(userEmployee.getUser().getPassword());
+        save(user);
+
+        employee.setUser(user);
+        employee.setSalary(userEmployee.getEmployee().getSalary());
+        employee.setHireDate(LocalDateTime.now());
+        employee.setPosition(userEmployee.getPosition());
+
+        employeeService.save(employee);
+
+        return null;
+    }
 }

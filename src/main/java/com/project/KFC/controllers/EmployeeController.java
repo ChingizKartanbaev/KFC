@@ -1,8 +1,10 @@
 package com.project.KFC.controllers;
 
-import com.project.KFC.models.Employee;
+import com.project.KFC.models.Position;
+import com.project.KFC.models.Response.UserEmployee;
 import com.project.KFC.models.User;
 import com.project.KFC.services.EmployeeService;
+import com.project.KFC.services.PositionService;
 import com.project.KFC.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,11 +17,13 @@ public class EmployeeController {
 
     private final EmployeeService employeeService;
     private final UserService userService;
+    private final PositionService positionService;
 
     @Autowired
-    public EmployeeController(EmployeeService employeeService, UserService userService) {
+    public EmployeeController(EmployeeService employeeService, UserService userService, PositionService positionService) {
         this.employeeService = employeeService;
         this.userService = userService;
+        this.positionService = positionService;
     }
 
     @GetMapping()
@@ -62,6 +66,19 @@ public class EmployeeController {
     @PutMapping("/delete/{id}")
     public String deleteWorker(@PathVariable("id") Long id){
         employeeService.delete(id);
+        return "redirect:/employee/workersControl";
+    }
+
+    @GetMapping("/regWorker")
+    public String regWorker(Model model) {
+        model.addAttribute("userEmployee", new UserEmployee())
+                .addAttribute("position", positionService.findAll());
+        return "director/formToAddWorker";
+    }
+
+    @PostMapping("/addWorker")
+    public String addUser(@ModelAttribute("userEmployee") UserEmployee user) {
+        userService.saveWorker(user);
         return "redirect:/employee/workersControl";
     }
 
