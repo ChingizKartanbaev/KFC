@@ -34,13 +34,13 @@ public class EmployeeController {
 
     @GetMapping("/showAllWorkers")
     public String showAllWorkers(Model model){
-        model.addAttribute("workers", employeeService.findAll());
+        model.addAttribute("workers", employeeService.findAllActiveWorker());
         return "director/allWorkers";
     }
 
     @GetMapping("/getAllWorkers")
     public String getAllWorkers(Model model){
-        model.addAttribute("workers", employeeService.findAll());
+        model.addAttribute("workers", employeeService.findAllActiveWorker());
         return "director/showAllWorker";
     }
 
