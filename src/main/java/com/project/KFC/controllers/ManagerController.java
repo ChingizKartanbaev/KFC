@@ -36,4 +36,10 @@ public class ManagerController {
         taskService.createTask(employeeTask);
         return "redirect:/employee";
     }
+
+    @GetMapping("/allDoneTasks")
+    public String allDoneTasks(Model model) {
+        model.addAttribute("tasks", taskService.findAll());
+        return "manager/allTasks";
+    }
 }

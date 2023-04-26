@@ -45,7 +45,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public List<Task> findAll() {
-        return rep.findAll();
+        return rep.findAllNotFinishedTask();
     }
 
     @Override
