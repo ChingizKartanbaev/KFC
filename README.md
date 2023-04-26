@@ -6,7 +6,7 @@ The employee control system for KFC is designed to make life easier for those wh
 ## Authors
 
 - [@Akylai](https://github.com/AkkisRa)
-- [@Bektur](https://github.com/BekturMaasaliev)
+- [@Bektur](https://github.com/bekturmsv)
 - [@Chingiz](https://github.com/Operans)
 - [@Janara](https://github.com/Janaras)
 
