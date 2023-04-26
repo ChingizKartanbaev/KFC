@@ -43,4 +43,13 @@ public interface EmployeeRep extends JpaRepository<Employee, Long> {
     void softDelete(Long id);
 
     List<Employee> findAllByActiveIsTrue();
+
+    @Query(value = "\n"+
+            "select *\n" +
+            "from tb_employee as employee\n" +
+            "INNER join tb_position as positions\n" +
+            "on employee.position_id=positions.id\n" +
+            "WHERE positions.position = 'Cashier'", nativeQuery = true)
+    List<Employee> findAllCashier();
+
 }

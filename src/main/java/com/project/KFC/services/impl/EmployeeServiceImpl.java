@@ -87,4 +87,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         return rep.findAllByActiveIsTrue();
     }
 
+    @Override
+    public List<Employee> findAllCashier() {
+        return rep.findAllCashier();
+    }
+
 }

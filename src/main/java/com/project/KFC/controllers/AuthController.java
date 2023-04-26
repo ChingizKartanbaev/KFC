@@ -33,7 +33,7 @@ public class AuthController {
         switch (role) {
             case "Customer":
                 return "redirect:/customer";
-            case "Manager", "Director":
+            case "Manager", "Director","Cashier":
                 return "redirect:/employee";
             case "Admin":
                 return "redirect:/auth";

@@ -19,4 +19,5 @@ public interface EmployeeService extends BaseService<Employee> {
 
     List<Employee> findAllActiveWorker();
 
+    List<Employee> findAllCashier();
 }

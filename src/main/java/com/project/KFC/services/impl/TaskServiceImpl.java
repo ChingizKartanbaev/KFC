@@ -1,7 +1,10 @@
 package com.project.KFC.services.impl;
 
+import com.project.KFC.enums.TaskStatusEnum;
+import com.project.KFC.models.Response.EmployeeTask;
 import com.project.KFC.models.Task;
 import com.project.KFC.repositories.TaskRep;
+import com.project.KFC.services.EmployeeService;
 import com.project.KFC.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,10 +15,12 @@ import java.util.List;
 public class TaskServiceImpl implements TaskService {
 
     private final TaskRep rep;
+    private final EmployeeService employeeService;
 
     @Autowired
-    public TaskServiceImpl(TaskRep rep) {
+    public TaskServiceImpl(TaskRep rep, EmployeeService employeeService) {
         this.rep = rep;
+        this.employeeService = employeeService;
     }
 
     @Override
@@ -41,5 +46,16 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public List<Task> findAll() {
         return rep.findAll();
+    }
+
+    @Override
+    public void createTask(EmployeeTask employeeTask) {
+        Task task = new Task();
+
+        task.setTask(employeeTask.getTask().getTask());
+        task.setTaskStatus(TaskStatusEnum.UNFINISHED);
+        task.setEmployee(employeeTask.getEmployee());
+
+        save(task);
     }
 }

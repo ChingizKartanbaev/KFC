@@ -21,9 +21,8 @@ public class Task {
 
     String task;
 
-    @OneToOne
-    @JoinColumn(name = "task_status_id")
-    TaskStatus taskStatus;
+    @Enumerated(EnumType.STRING)
+    TaskStatusEnum taskStatus;
 
     @OneToOne
     @JoinColumn(name = "employee_id")
