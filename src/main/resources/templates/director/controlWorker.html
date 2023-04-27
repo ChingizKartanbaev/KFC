@@ -27,9 +27,9 @@
                     <td><a th:text="${worker.getUser().getBirhtdate()}">birthday</a></td>
                     <td style="width: 125px">
                         <div style="display: flex">
-                            <a th:href="@{/employee/{id}/edit(id=${worker.getUser().getId()})}">Edit</a>
+                            <a th:href="@{/director/{id}/edit(id=${worker.getUser().getId()})}">Edit</a>
 
-                            <form style="margin-left: 5px" th:method="PUT" th:action="@{/employee/delete/{id}(id=${worker.getId()})}">
+                            <form style="margin-left: 5px" th:method="PUT" th:action="@{/director/delete/{id}(id=${worker.getId()})}">
                                 <input type="submit" value="Delete">
                             </form>
                         </div>
@@ -37,7 +37,7 @@
                 </tr>
                 </tbody>
             </table>
-            <a href="/employee/regWorker">Add</a>
+            <a href="/director/regWorker">Add</a>
             <a href="/employee">Back</a>
         </center>
 

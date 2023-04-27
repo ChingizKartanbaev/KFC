@@ -29,8 +29,8 @@
                     <td><a th:text="${worker.getPosition().getPosition()}">position</a></td>
                     <td style="width: 125px">
                         <div style="display: flex; justify-content: space-between;">
-                            <a th:href="@{/employee/{id}/editSalaryUp(id=${worker.getId()})}">Raise</a>
-                            <a th:href="@{/employee/{id}/editSalaryLow(id=${worker.getId()})}">lower</a>
+                            <a th:href="@{/director/{id}/editSalaryUp(id=${worker.getId()})}">Raise</a>
+                            <a th:href="@{/director/{id}/editSalaryLow(id=${worker.getId()})}">lower</a>
                         </div>
                     </td>
                 </tr>

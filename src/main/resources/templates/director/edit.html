@@ -6,7 +6,7 @@
     <title>Edit</title>
 </head>
 <body>
-<form th:method="PUT" th:action="@{/employee/updatePersonalData/{id}(id=${workerData.getId()})}" th:object="${workerData}">
+<form th:method="PUT" th:action="@{/director/updatePersonalData/{id}(id=${workerData.getId()})}" th:object="${workerData}">
     <div>
         <p class="ordering-title">Enter First Name:</p>
         <input type="text" class="ordering-input" th:field="*{firstName}" id="firstName"/>

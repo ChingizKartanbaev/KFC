@@ -20,4 +20,8 @@ public class Review {
 
     String review;
 
+    @OneToOne
+    @JoinColumn(name = "customer_id")
+    Customer customer;
+
 }

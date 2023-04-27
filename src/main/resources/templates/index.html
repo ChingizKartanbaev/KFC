@@ -80,7 +80,7 @@
                     <li>
                         <div th:if="${employee == null}">
                             <div th:if="${user != null}">
-                                <a href="">Leave a review</a>
+                                <a th:href="@{/customer/review/{id}(id=${customer.getId()})}">Leave a review</a>
                             </div>
                         </div>
                     </li>
@@ -101,7 +101,7 @@
                     <li>
                         <div th:if="${customer == null}">
                             <div th:if="${user != null && employee.getPosition().getPosition().equals('Director')}">
-                                <a href="/employee/workersControl">Add or Delete worker</a>
+                                <a href="/director/workersControl">Add or Delete worker</a>
                             </div>
                         </div>
                     </li>

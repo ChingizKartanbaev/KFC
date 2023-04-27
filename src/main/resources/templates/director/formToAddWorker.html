@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container">
-    <form th:method="POST" th:action="@{/employee/addWorker}" th:object="${userEmployee}">
+    <form th:method="POST" th:action="@{/director/addWorker}" th:object="${userEmployee}">
         <div class="mb-3">
             <label for="firstName" class="form-label">First name</label>
             <input type="text" class="form-control" id="firstName" th:field="*{user.firstName}" required>

@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="container">
-    <form th:method="PUT" th:action="@{/employee/{id}/Up(id=${worker.getId()})}" th:object="${worker}">
+    <form th:method="PUT" th:action="@{/director/{id}/Up(id=${worker.getId()})}" th:object="${worker}">
       <div class="input-group mb-3">
         <span class="input-group-text">$</span>
         <span class="input-group-text" th:text="${worker.getSalary()}">0.00</span>

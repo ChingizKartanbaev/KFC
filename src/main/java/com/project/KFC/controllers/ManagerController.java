@@ -42,4 +42,5 @@ public class ManagerController {
         model.addAttribute("tasks", taskService.findAll());
         return "manager/allTasks";
     }
+
 }

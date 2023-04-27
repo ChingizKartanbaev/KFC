@@ -86,9 +86,7 @@ public class UserServiceImpl implements UserService {
         user1.setFirstName(user.getFirstName());
         user1.setLastName(user.getLastName());
         user1.setBirhtdate(user.getBirhtdate());
-        user1.setPassword(user.getPassword());
-        user1.setLogin(user.getLogin());
-        return save(user);
+        return save(user1);
     }
 
     @Override
