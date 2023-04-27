@@ -2,11 +2,72 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Работник</title>
+    <link rel="stylesheet" th:href="@{/css/profile.css}" >
+
 </head>
 <body>
-<h1 th:text="${user.firstName}">value</h1>
-<p th:text="${user.lastName}">value</p>
-<p th:text="${user.birhtdate}">value</p>
+<!--<h1 th:text="${user.firstName}">value</h1>-->
+<!--<p th:text="${user.lastName}">value</p>-->
+<!--<p th:text="${user.birhtdate}">value</p>-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="profile-img">
+                <img src="https://job-kfc.ru/bitrix/templates/furniture_blue/images/happy-man.png" alt=""/>
+
+            </div>
+
+
+        </div>
+        <div class="row" style="width: 50%">
+
+            <div class="">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Имя:</label>
+                            </div>
+                            <div class="col-md-10">
+                               <p><span th:text="${user.lastName}"></span> <span th:text="${user.firstName}"></span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Email:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p>kshitighelani@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Номер:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p>123 456 7890</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Дата рождения:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p th:text="${user.birhtdate}"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 </body>
 </html>
