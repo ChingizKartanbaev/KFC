@@ -36,12 +36,9 @@ public class CustomerController {
     }
 
     @PutMapping("/saveReview/{id}")
-    public String saveReview(@ModelAttribute("review")Review review, @PathVariable("id") Long id) {
-        Review review1 = new Review();
-        review1.setCustomer(customerService.findById(id));
-//        reviewService.save(review);
-        System.out.println(review.getReview());
-        System.out.println(review.getCustomer());
+    public String saveReview(@ModelAttribute("reviews")Review review, @PathVariable("id") Long id) {
+        review.setCustomer(customerService.findById(id));
+        reviewService.save(review);
         return "redirect:/customer";
     }
 }

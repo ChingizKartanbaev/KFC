@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container">
-  <form th:method="PUT" th:action="@{/customer/saveReview/{id}(id=${cus.getId()})}" th:object="${review}">
+  <form th:method="PUT" th:action="@{/customer/saveReview/{id}(id=${customer.getId()})}" th:object="${reviews}">
     <div class="mb-3">
       <label for="review" class="form-label">Review</label>
       <input type="text" class="form-control" id="review" th:field="*{review}" required>

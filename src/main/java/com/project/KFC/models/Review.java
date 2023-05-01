@@ -20,7 +20,7 @@ public class Review {
 
     String review;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "customer_id")
     Customer customer;
 
