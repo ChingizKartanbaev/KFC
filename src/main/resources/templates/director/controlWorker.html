@@ -16,6 +16,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Birthday</th>
+                    <th scope="col">Position</th>
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
@@ -25,6 +26,7 @@
                     <td><a th:text="${worker.getUser().getFirstName()}">firstName</a></td>
                     <td><a th:text="${worker.getUser().getLastName()}">firstName</a></td>
                     <td><a th:text="${worker.getUser().getBirhtdate()}">birthday</a></td>
+                    <td><a th:text="${worker.getPosition().getPosition()}">birthday</a></td>
                     <td style="width: 125px">
                         <div style="display: flex">
                             <a th:href="@{/director/{id}/edit(id=${worker.getUser().getId()})}">Edit</a>

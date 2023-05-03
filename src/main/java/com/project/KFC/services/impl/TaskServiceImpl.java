@@ -58,4 +58,9 @@ public class TaskServiceImpl implements TaskService {
 
         save(task);
     }
+
+    @Override
+    public List<Task> findTaskByIdAndStatus(Long id, TaskStatusEnum statusEnum) {
+        return rep.findTaskByIdAndStatus(id, String.valueOf(statusEnum));
+    }
 }
