@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -21,16 +20,13 @@ public class CashierController {
         this.taskService = service;
     }
 
-
-    //TODO
-    @PostMapping("/getMyTask/{id}}")
-    public String getMyTask(Model model, @PathVariable("id") Long id){
+    @GetMapping("/getMyTask/{id}")
+    public String getMyTask(@PathVariable("id") Long id, Model model){
         model.addAttribute("tasks", taskService.findTaskByIdAndStatus(id, TaskStatusEnum.UNFINISHED));
         return "cashier/task";
     }
 
-    //TODO
-    @GetMapping("/getCompleteTask/{id}}")
+    @GetMapping("/getCompleteTask/{id}")
     public String getCompleteTask(Model model, @PathVariable("id") Long id){
         model.addAttribute("tasks", taskService.findTaskByIdAndStatus(id, TaskStatusEnum.FINISHED));
         return "cashier/task";

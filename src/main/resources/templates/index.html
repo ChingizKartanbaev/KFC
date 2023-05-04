@@ -119,8 +119,6 @@
                             </div>
                         </div>
                     </li>
-
-                    <!--     TODO       -->
                     <li>
                         <div th:if="${customer == null}">
                             <div th:if="${user != null && employee.getPosition().getPosition().equals('Cashier')}">
@@ -128,21 +126,10 @@
                             </div>
                         </div>
                     </li>
-
-                    <!--     TODO       -->
                     <li>
                         <div th:if="${customer == null}">
                             <div th:if="${user != null && employee.getPosition().getPosition().equals('Cashier')}">
                                 <a th:href="@{/cashier/getCompleteTask/{id}(id=${employee.getId()})}">Show a list of completed instructions</a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!--     TODO       -->
-                    <li>
-                        <div th:if="${customer == null}">
-                            <div th:if="${user != null && employee.getPosition().getPosition().equals('Cashier')}">
-                                <a href="">Show salary</a>
                             </div>
                         </div>
                     </li>
@@ -160,7 +147,6 @@
                             </div>
                         </div>
                     </li>
-
                 </ul>
 
             </nav>

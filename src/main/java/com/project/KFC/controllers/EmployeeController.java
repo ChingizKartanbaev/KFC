@@ -2,8 +2,6 @@ package com.project.KFC.controllers;
 
 
 import com.project.KFC.services.EmployeeService;
-import com.project.KFC.services.PositionService;
-import com.project.KFC.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
