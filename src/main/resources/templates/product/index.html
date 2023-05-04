@@ -8,11 +8,11 @@
 <body>
   <div class="container" th:each="product : ${products}">
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img th:src="${product.getImage()}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title" th:text="${product.getName()}">Card title</h5>
         <p class="card-text" th:text="${product.getDescription()}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" class="btn btn-primary">Add to Cart</a>
       </div>
     </div>
   </div>
