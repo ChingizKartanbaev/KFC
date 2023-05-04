@@ -37,8 +37,11 @@ public class CustomerController {
 
     @PutMapping("/saveReview/{id}")
     public String saveReview(@ModelAttribute("reviews")Review review, @PathVariable("id") Long id) {
-        review.setCustomer(customerService.findById(id));
-        reviewService.save(review);
+        Review review1 = new Review();
+        review1.setReview(review.getReview());
+        review1.setCustomer(customerService.findById(id));
+
+        reviewService.save(review1);
         return "redirect:/customer";
     }
 }

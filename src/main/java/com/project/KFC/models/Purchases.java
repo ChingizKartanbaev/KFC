@@ -1,5 +1,6 @@
 package com.project.KFC.models;
 
+import com.project.KFC.enums.PurchasesStatusEnum;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -38,4 +39,6 @@ public class Purchases {
 
     double totalPrice;
 
+    @Enumerated(EnumType.STRING)
+    PurchasesStatusEnum purchasesStatusEnum;
 }
