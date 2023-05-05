@@ -10,19 +10,21 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_customer")
+@Table(name = "tb_purchases_detail")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Customer extends BaseModel {
+public class PurchasesDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @OneToOne
-    @JoinColumn(name = "purchases_id", nullable = true)
+    int amount;
+
+    @ManyToOne
+    @JoinColumn(name = "purchases_id")
     Purchases purchases;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    User user;
+    @ManyToOne
+    @JoinColumn(name = "products_id")
+    Products products;
 }

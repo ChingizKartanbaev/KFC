@@ -22,12 +22,6 @@ public class Purchases {
     Long id;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    Products products;
-
-    int count;
-
-    @ManyToOne
     @JoinColumn(name = "employee_id")
     Employee employee;
 
@@ -35,10 +29,10 @@ public class Purchases {
     @JoinColumn(name = "store_id")
     Store store;
 
-    LocalDateTime date;
+    LocalDateTime purchasesDate;
 
-    double totalPrice;
+    double price;
 
     @Enumerated(EnumType.STRING)
-    PurchasesStatusEnum purchasesStatusEnum;
+    PurchasesStatusEnum purchasesStatus;
 }
