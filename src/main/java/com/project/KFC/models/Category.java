@@ -21,7 +21,4 @@ public class Category {
 
     String category;
 
-    @OneToMany
-    List<Products> products;
-
 }
