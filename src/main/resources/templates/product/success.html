@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<p>Your order has been accepted, wait for it</p>
+<p><span>Your order has been accepted, wait for it. Your number is</span> <span th:text="${purchases}">value</span></p>
 <a href="/customer">Back</a>
 </body>
 </html>

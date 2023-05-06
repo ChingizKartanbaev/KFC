@@ -57,7 +57,10 @@ public class PurchasesServiceImpl implements PurchasesService {
     }
 
     @Override
-    public void buy() {
+    public Long buy() {
+        if(findById(customerService.findById(customerService.getCustomer().getId()).getPurchases().getId()).getPurchasesStatus() == PurchasesStatusEnum.PROCESS) {
+            return 0L;
+        }
         Purchases purchases = new Purchases();
         purchases.setPurchasesDate(LocalDateTime.now());
         purchases.setPrice(productsService.getTotalCost());
@@ -74,5 +77,6 @@ public class PurchasesServiceImpl implements PurchasesService {
             purchasesDetailService.save(purchasesDetail);
         }
         productsService.getBasket().clear();
+        return purchases.getId();
     }
 }

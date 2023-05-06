@@ -4,6 +4,6 @@ import com.project.KFC.models.Purchases;
 
 public interface PurchasesService extends BaseService<Purchases> {
 
-    void buy();
+    Long buy();
 
 }

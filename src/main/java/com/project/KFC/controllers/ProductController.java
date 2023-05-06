@@ -48,8 +48,12 @@ public class ProductController {
     }
 
     @GetMapping("/buy")
-    public String buy() {
-        purchasesService.buy();
+    public String buy(Model model) {
+        Long number = purchasesService.buy();
+        if (number == 0){
+            return "product/error";
+        }
+        model.addAttribute("purchases", number);
         return "product/success";
     }
 
