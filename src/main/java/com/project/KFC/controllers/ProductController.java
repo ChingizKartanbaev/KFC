@@ -12,12 +12,10 @@ import org.springframework.web.bind.annotation.*;
 public class ProductController {
 
     private final ProductsService productsService;
-    private final PurchasesService purchasesService;
 
     @Autowired
-    public ProductController(ProductsService productsService, PurchasesService purchasesService) {
+    public ProductController(ProductsService productsService) {
         this.productsService = productsService;
-        this.purchasesService = purchasesService;
     }
 
     @GetMapping("/getAll")
@@ -45,16 +43,6 @@ public class ProductController {
     public String deleteFromCart(@PathVariable("id") Long id) {
         productsService.deleteFromCart(id);
         return "redirect:/product/myCart";
-    }
-
-    @GetMapping("/buy")
-    public String buy(Model model) {
-        Long number = purchasesService.buy();
-        if (number == 0){
-            return "product/error";
-        }
-        model.addAttribute("purchases", number);
-        return "product/success";
     }
 
 }

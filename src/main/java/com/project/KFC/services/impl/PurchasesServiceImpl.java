@@ -58,8 +58,10 @@ public class PurchasesServiceImpl implements PurchasesService {
 
     @Override
     public Long buy() {
-        if(findById(customerService.findById(customerService.getCustomer().getId()).getPurchases().getId()).getPurchasesStatus() == PurchasesStatusEnum.PROCESS) {
-            return 0L;
+        if(customerService.findById(customerService.getCustomer().getId()).getPurchases() != null) {
+            if(findById(customerService.findById(customerService.getCustomer().getId()).getPurchases().getId()).getPurchasesStatus() == PurchasesStatusEnum.PROCESS) {
+                return 0L;
+            }
         }
         Purchases purchases = new Purchases();
         purchases.setPurchasesDate(LocalDateTime.now());
@@ -78,5 +80,17 @@ public class PurchasesServiceImpl implements PurchasesService {
         }
         productsService.getBasket().clear();
         return purchases.getId();
+    }
+
+    @Override
+    public String checkPurchases() {
+        if(customerService.findById(customerService.getCustomer().getId()).getPurchases() == null){
+            return "You have not any purchase";
+        }
+        if(findById(customerService.findById(customerService.getCustomer().getId()).getPurchases().getId()).getPurchasesStatus() == PurchasesStatusEnum.PROCESS) {
+            return "not finished";
+        } else {
+            return "finished. You can pick it up";
+        }
     }
 }

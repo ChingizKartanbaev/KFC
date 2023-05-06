@@ -6,4 +6,5 @@ public interface PurchasesService extends BaseService<Purchases> {
 
     Long buy();
 
+    String checkPurchases();
 }

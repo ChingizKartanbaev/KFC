@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:if="${!status.equals('You have not any purchase')}"><span>Your purchase is:</span> <span th:text="${status}">status</span></p>
+<p th:if="${status.equals('You have not any purchase')}"><span th:text="${status}">status</span></p>
+</body>
+</html>
