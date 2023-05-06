@@ -1,7 +1,7 @@
 package com.project.KFC.controllers;
 
 import com.project.KFC.services.ProductsService;
-import lombok.Getter;
+import com.project.KFC.services.PurchasesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.*;
 public class ProductController {
 
     private final ProductsService productsService;
+    private final PurchasesService purchasesService;
 
     @Autowired
-    public ProductController(ProductsService productsService) {
+    public ProductController(ProductsService productsService, PurchasesService purchasesService) {
         this.productsService = productsService;
+        this.purchasesService = purchasesService;
     }
 
     @GetMapping("/getAll")
@@ -43,6 +45,12 @@ public class ProductController {
     public String deleteFromCart(@PathVariable("id") Long id) {
         productsService.deleteFromCart(id);
         return "redirect:/product/myCart";
+    }
+
+    @GetMapping("/buy")
+    public String buy() {
+        purchasesService.buy();
+        return "product/success";
     }
 
 }
