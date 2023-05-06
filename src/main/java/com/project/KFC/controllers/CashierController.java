@@ -1,12 +1,14 @@
 package com.project.KFC.controllers;
 
 import com.project.KFC.enums.TaskStatusEnum;
+import com.project.KFC.models.Task;
 import com.project.KFC.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -32,4 +34,11 @@ public class CashierController {
         return "cashier/task";
     }
 
+    @PutMapping("/complete/{id}")
+    public String completeTask(@PathVariable("id") Long id) {
+        Task task = taskService.findById(id);
+        task.setTaskStatus(TaskStatusEnum.FINISHED);
+        taskService.save(task);
+        return "redirect:/employee";
+    }
 }

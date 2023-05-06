@@ -16,6 +16,7 @@
         <th scope="col">Task</th>
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
+        <th scope="col">Action</th>
       </tr>
       </thead>
       <tbody th:each="task : ${tasks}">
@@ -24,6 +25,16 @@
         <td><a th:text="${task.getTask()}">task</a></td>
         <td><a th:text="${task.getEmployee().getUser().getFirstName()}">firstName</a></td>
         <td><a th:text="${task.getEmployee().getUser().getLastName()}">lastName</a></td>
+        <td th:if="${task.getTaskStatus() == T(com.project.KFC.enums.TaskStatusEnum).UNFINISHED}">
+          <form style="margin-left: 5px" th:method="PUT" th:action="@{/cashier/complete/{id}(id=${task.getId()})}">
+              <input type="submit" value="Complete task">
+          </form>
+        </td>
+
+        <td th:if="${task.getTaskStatus() == T(com.project.KFC.enums.TaskStatusEnum).FINISHED}">
+          <span>Completed</span>
+        </td>
+
       </tr>
       </tbody>
     </table>

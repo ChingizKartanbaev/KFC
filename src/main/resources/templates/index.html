@@ -129,7 +129,7 @@
                     <li>
                         <div th:if="${customer == null}">
                             <div th:if="${user != null && employee.getPosition().getPosition().equals('Cashier')}">
-                                <a th:href="@{/cashier/getCompleteTask/{id}(id=${employee.getId()})}">Show a list of completed instructions</a>
+                                <a th:href="@{/cashier/getCompleteTask/{id}(id=${employee.getId()})}">Show a list of completed tasks</a>
                             </div>
                         </div>
                     </li>
