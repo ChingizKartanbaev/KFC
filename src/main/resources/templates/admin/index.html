@@ -9,30 +9,7 @@
 <div class="container">
 
     <center>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Action</th>
-            </tr>
-            </thead>
-            <tbody th:each="category : ${categories}">
-            <tr>
-                <th scope="row"><a th:text="${category.getId()}">id</a></th>
-                <td><a th:text="${category.getCategory()}">Name</a></td>
-                <td style="width: 125px">
-                    <div style="display: flex">
-                        <form style="margin-left: 5px" th:method="DELETE" th:action="@{/admin/delete/{id}(id=${category.getId()})}">
-                            <input type="submit" value="Delete">
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <a href="/director/regWorker">Add</a>
-        <a href="/employee">Back</a>
+        <h1>Он ничего не умеет</h1>
     </center>
 
 </div>
