@@ -114,8 +114,15 @@
                     </li>
                     <li>
                         <div th:if="${customer == null}">
-                            <div th:if="${user != null && (employee.getPosition().getPosition().equals('Manager') || employee.getPosition().getPosition().equals('Cashier'))}">
-                                <a href="">Show the list of orders</a>
+                            <div th:if="${user != null && employee.getPosition().getPosition().equals('Cashier')}">
+                                <a href="/purchases/getProcessPurchases">Show the list of orders</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${customer == null}">
+                            <div th:if="${user != null && employee.getPosition().getPosition().equals('Manager')}">
+                                <a href="">Show a list of completed orders</a>
                             </div>
                         </div>
                     </li>

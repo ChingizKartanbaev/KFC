@@ -30,6 +30,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void delete(Long id) {
+        rep.deleteById(id);
     }
 
     @Override

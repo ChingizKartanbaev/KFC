@@ -59,4 +59,9 @@ public class CustomerServiceImpl implements CustomerService {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    @Override
+    public List<Customer> getProcessPurchasesFromCustomer() {
+        return rep.getProcessPurchasesFromCustomer();
+    }
 }

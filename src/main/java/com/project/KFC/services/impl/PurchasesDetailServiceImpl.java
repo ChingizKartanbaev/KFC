@@ -25,7 +25,7 @@ public class PurchasesDetailServiceImpl implements PurchasesDetailService {
 
     @Override
     public PurchasesDetail findById(Long id) {
-        return null;
+        return rep.findById(id).orElseThrow(()-> new RuntimeException("not found"));
     }
 
     @Override
@@ -41,5 +41,10 @@ public class PurchasesDetailServiceImpl implements PurchasesDetailService {
     @Override
     public List<PurchasesDetail> findAll() {
         return null;
+    }
+
+    @Override
+    public List<PurchasesDetail> findAllByPurchasesId(Long id) {
+        return rep.findAllByPurchasesId(id);
     }
 }
