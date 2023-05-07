@@ -122,7 +122,7 @@
                     <li>
                         <div th:if="${customer == null}">
                             <div th:if="${user != null && employee.getPosition().getPosition().equals('Manager')}">
-                                <a href="">Show a list of completed orders</a>
+                                <a href="/purchases/completed">Show a list of completed orders</a>
                             </div>
                         </div>
                     </li>

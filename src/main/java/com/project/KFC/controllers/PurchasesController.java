@@ -58,4 +58,10 @@ public class PurchasesController {
         purchasesService.save(purchases);
         return "redirect:/purchases/getProcessPurchases";
     }
+
+    @GetMapping("/completed")
+    public String completed(Model model) {
+        model.addAttribute("purchases", purchasesService.findAllByPurchasesStatus());
+        return "purchases/finished";
+    }
 }

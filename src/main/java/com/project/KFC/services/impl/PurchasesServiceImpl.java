@@ -94,4 +94,9 @@ public class PurchasesServiceImpl implements PurchasesService {
         }
     }
 
+    @Override
+    public List<Purchases> findAllByPurchasesStatus() {
+        return rep.findAllByPurchases();
+    }
+
 }
