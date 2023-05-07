@@ -28,7 +28,7 @@
         <td style="width: 125px">
           <div style="display: flex">
             <button><a th:href="@{/purchasesDetails/{id}(id=${purchase.getPurchases().getId()})}">Details</a></button>
-            <form style="margin-left: 5px" th:method="PUT" th:action="@{/director/delete/{id}(id=${purchase.getPurchases().getId()})}">
+            <form style="margin-left: 5px" th:method="PUT" th:action="@{/purchases/complete/{id}(id=${purchase.getPurchases().getId()})}">
               <input type="submit" value="Done">
             </form>
           </div>
