@@ -24,7 +24,7 @@ public class AuthController {
     @GetMapping("/logout")
     public String logout() {
         userService.logout();
-        return "redirect:/main";
+        return "redirect:/";
     }
 
     @PostMapping("/check")
@@ -38,7 +38,7 @@ public class AuthController {
             case "Admin":
                 return "redirect:/auth";
             case "error":
-                return "redirect:/main/error";
+                return "redirect:/error";
         }
         return "redirect:/auth";
     }

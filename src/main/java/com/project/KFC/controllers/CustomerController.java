@@ -2,6 +2,7 @@ package com.project.KFC.controllers;
 
 import com.project.KFC.models.Review;
 import com.project.KFC.services.CustomerService;
+import com.project.KFC.services.ProductsService;
 import com.project.KFC.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,17 +15,20 @@ public class CustomerController {
 
     private final CustomerService customerService;
     private final ReviewService reviewService;
+    private final ProductsService productsService;
 
     @Autowired
-    public CustomerController(CustomerService customerService, ReviewService reviewService) {
+    public CustomerController(CustomerService customerService, ReviewService reviewService, ProductsService productsService) {
         this.customerService = customerService;
         this.reviewService = reviewService;
+        this.productsService = productsService;
     }
 
     @GetMapping()
     public String indexCustomer(Model model) {
         model.addAttribute("user", customerService.getCustomer())
-                .addAttribute("customer", customerService.getCustomer());
+                .addAttribute("customer", customerService.getCustomer())
+                .addAttribute("menus", productsService.findAll());
         return "index";
     }
 
