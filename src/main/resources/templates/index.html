@@ -177,7 +177,7 @@
                                 <li class="dinone"><img style="margin-right: 15px;" src="images/mail_icon.png" alt="#"><a href="#">kfc@gmail.com</a></li>
                                 <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="images/location_icon.png" alt="#"><a href="#">104 New york , USA</a></li>
                                 <li th:if="${user == null}" class="button_user"><a class="button active" href="/auth">Login</a><a class="button" href="/auth/reg">Register</a></li>
-                                <li th:if="${user != null}" class="button_user"><a th:href="@{/main/profile/{id}(id=${user.getUser().getId()})}"><span th:text="${user.getUser().firstName}"></span></a> <a class="button active" href="/auth/logout">Logout</a> </li>
+                                <li th:if="${user != null}" class="button_user"><a th:href="@{/profile/{id}(id=${user.getUser().getId()})}"><span th:text="${user.getUser().firstName}"></span></a> <a class="button active" href="/auth/logout">Logout</a> </li>
                                 <li><img style="margin-right: 15px;" src="images/search_icon.png" alt="#"></li>
                                 <li>
                                     <button type="button" id="sidebarCollapse">
@@ -444,11 +444,11 @@
                     </div>
                     <div class="col-md-12">
                         <ul class="lik">
-                            <li class="active"> <a href="/main">Home</a></li>
-                            <li> <a href="/main/about">About</a></li>
+                            <li class="active"> <a href="/">Home</a></li>
+                            <li> <a href="/about">About</a></li>
                             <li> <a href="recipe.html">Recipe</a></li>
-                            <li> <a href="/main/blog">Blog</a></li>
-                            <li> <a href="/main/contact">Contact us</a></li>
+                            <li> <a href="/blog">Blog</a></li>
+                            <li> <a href="/contact">Contact us</a></li>
                         </ul>
                     </div>
                     <div class="col-md-12">

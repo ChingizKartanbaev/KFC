@@ -36,7 +36,8 @@ public class ProductsServiceImpl implements ProductsService {
 
     @Override
     public void delete(Long id) {
-
+        Products products = findById(id);
+        rep.delete(products);
     }
 
     @Override
