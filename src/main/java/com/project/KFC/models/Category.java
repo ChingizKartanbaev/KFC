@@ -21,4 +21,7 @@ public class Category {
 
     String category;
 
+    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Products> products;
+
 }
