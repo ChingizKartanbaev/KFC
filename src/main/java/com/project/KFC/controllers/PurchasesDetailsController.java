@@ -24,4 +24,10 @@ public class PurchasesDetailsController {
         model.addAttribute("details", purchasesDetailService.findAllByPurchasesId(id));
         return "purchases/details";
     }
+
+    @GetMapping("/detail/{id}")
+    public String detailAdmin(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("details", purchasesDetailService.findAllByPurchasesId(id));
+        return "admin/purchasesDetail";
+    }
 }
