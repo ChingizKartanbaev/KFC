@@ -20,4 +20,9 @@ public class Store {
 
     String store;
 
+    String address;
+
+    @Column(length = 1000)
+    String image;
+
 }

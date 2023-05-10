@@ -8,6 +8,7 @@ import lombok.experimental.FieldDefaults;
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Basket {
+
     Products products;
     double cost;
     int amount;

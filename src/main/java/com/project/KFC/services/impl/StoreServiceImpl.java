@@ -12,6 +12,7 @@ import java.util.List;
 public class StoreServiceImpl implements StoreService {
 
     private final StoreRep rep;
+    private Store store;
 
     @Autowired
     public StoreServiceImpl(StoreRep rep) {
@@ -30,7 +31,6 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public void delete(Long id) {
-
     }
 
     @Override
@@ -41,5 +41,15 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public List<Store> findAll() {
         return rep.findAll();
+    }
+
+    @Override
+    public Store getStore() {
+        return store;
+    }
+
+    @Override
+    public void setStore(Store store) {
+        this.store = store;
     }
 }

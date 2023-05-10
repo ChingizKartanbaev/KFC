@@ -5,6 +5,7 @@ import com.project.KFC.models.Purchases;
 import com.project.KFC.services.CustomerService;
 import com.project.KFC.services.EmployeeService;
 import com.project.KFC.services.PurchasesService;
+import com.project.KFC.services.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

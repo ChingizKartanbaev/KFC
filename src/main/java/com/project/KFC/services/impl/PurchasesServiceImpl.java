@@ -5,10 +5,7 @@ import com.project.KFC.models.Purchases;
 import com.project.KFC.models.PurchasesDetail;
 import com.project.KFC.models.Response.Basket;
 import com.project.KFC.repositories.PurchasesRep;
-import com.project.KFC.services.CustomerService;
-import com.project.KFC.services.ProductsService;
-import com.project.KFC.services.PurchasesDetailService;
-import com.project.KFC.services.PurchasesService;
+import com.project.KFC.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,13 +19,15 @@ public class PurchasesServiceImpl implements PurchasesService {
     private final ProductsService productsService;
     private final CustomerService customerService;
     private final PurchasesDetailService purchasesDetailService;
+    private final StoreService storeService;
 
     @Autowired
-    public PurchasesServiceImpl(PurchasesRep rep, ProductsService productsService, CustomerService customerService, PurchasesDetailService purchasesDetailService) {
+    public PurchasesServiceImpl(PurchasesRep rep, ProductsService productsService, CustomerService customerService, PurchasesDetailService purchasesDetailService, StoreService storeService) {
         this.rep = rep;
         this.productsService = productsService;
         this.customerService = customerService;
         this.purchasesDetailService = purchasesDetailService;
+        this.storeService = storeService;
     }
 
     @Override
@@ -67,6 +66,7 @@ public class PurchasesServiceImpl implements PurchasesService {
         purchases.setPurchasesDate(LocalDateTime.now());
         purchases.setPrice(productsService.getTotalCost());
         purchases.setPurchasesStatus(PurchasesStatusEnum.PROCESS);
+        purchases.setStore(storeService.getStore());
         save(purchases);
         customerService.getCustomer().setPurchases(purchases);
         customerService.save(customerService.getCustomer());

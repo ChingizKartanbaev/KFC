@@ -121,6 +121,9 @@
                             <td><img th:src="${product.getImage()}" width="60px" height="70px"></img></td>
                             <td style="width: 125px">
                                 <div style="display: flex">
+                                    <form style="margin-left: 5px" th:method="PUT" th:action="@{/product/edit/{id}(id=${product.getId()})}">
+                                        <input class="btn btn-sm btn-warning" type="submit" value="Edit">
+                                    </form>
                                     <form style="margin-left: 5px" th:method="DELETE" th:action="@{/product/{id}(id=${product.getId()})}">
                                         <input class="btn btn-sm btn-primary" type="submit" value="Delete">
                                     </form>
