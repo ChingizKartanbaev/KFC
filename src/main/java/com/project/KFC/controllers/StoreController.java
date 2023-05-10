@@ -5,10 +5,7 @@ import com.project.KFC.services.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/store")
@@ -32,4 +29,30 @@ public class StoreController {
         storeService.setStore(storeService.findById(id));
         return "redirect:/product/getAll";
     }
+
+
+    @GetMapping("/getAll")
+    public String getAllForAdmin(Model model) {
+        model.addAttribute("stores", storeService.findAll());
+        return "admin/store";
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        storeService.delete(id);
+        return "redirect:/store/getAll";
+    }
+
+    @GetMapping("/create")
+    public String create(Model model) {
+        model.addAttribute("stores", new Store());
+        return "admin/storeCreateForm";
+    }
+
+    @PostMapping("/add")
+    public String add(@ModelAttribute("stores") Store store) {
+        storeService.save(store);
+        return "redirect:/store/getAll";
+    }
+
 }

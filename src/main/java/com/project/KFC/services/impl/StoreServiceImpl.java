@@ -31,6 +31,9 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public void delete(Long id) {
+        Store store1 = findById(id);
+        store1.setActive(false);
+        save(store1);
     }
 
     @Override
@@ -40,7 +43,7 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public List<Store> findAll() {
-        return rep.findAll();
+        return rep.getAllByActiveEquals(true);
     }
 
     @Override

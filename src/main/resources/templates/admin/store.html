@@ -21,14 +21,14 @@
   <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css}" rel="stylesheet">
 
   <!-- Libraries Stylesheet -->
-  <link th:href="@{lib/owlcarousel/assets/owl.carousel.min.css}" rel="stylesheet">
-  <link th:href="@{lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css}" rel="stylesheet" />
+  <link th:href="@{/lib/owlcarousel/assets/owl.carousel.min.css}" rel="stylesheet">
+  <link th:href="@{/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css}" rel="stylesheet" />
 
   <!-- Customized Bootstrap Stylesheet -->
-  <link th:href="@{admin_css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/admin_css/bootstrap.min.css}" rel="stylesheet">
 
   <!-- Template Stylesheet -->
-  <link th:href="@{admin_css/style.css}" rel="stylesheet">
+  <link th:href="@{/admin_css/style.css}" rel="stylesheet">
 </head>
 
 <body>
@@ -50,7 +50,7 @@
       </a>
       <div class="d-flex align-items-center ms-4 mb-4">
         <div class="position-relative">
-          <img class="rounded-circle" th:src="@{images/user.jpg}" alt="" style="width: 40px; height: 40px;">
+          <img class="rounded-circle" th:src="@{/images/user.jpg}" alt="" style="width: 40px; height: 40px;">
           <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
         </div>
         <div class="ms-3">
@@ -60,9 +60,9 @@
       </div>
       <div class="navbar-nav w-100">
         <a href="/admin" class="nav-item nav-link">Dashboard</a>
-        <a href="/category" class="nav-item nav-link active">Category</a>
+        <a href="/category" class="nav-item nav-link">Category</a>
         <a href="/product" class="nav-item nav-link">Product</a>
-        <a href="/store/getAll" class="nav-item nav-link">Store</a>
+        <a href="/store/getAll" class="nav-item nav-link active">Store</a>
       </div>
     </nav>
   </div>
@@ -77,12 +77,12 @@
         <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
       </a>
       <a href="#" class="sidebar-toggler flex-shrink-0">
-        <img th:src="@{images/menu_icon.png}">
+        <img th:src="@{/images/menu_icon.png}">
       </a>
       <div class="navbar-nav align-items-center ms-auto">
         <div class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-            <img class="rounded-circle me-lg-2" th:src="@{images/user.jpg}" alt="" style="width: 40px; height: 40px;">
+            <img class="rounded-circle me-lg-2" th:src="@{/images/user.jpg}" alt="" style="width: 40px; height: 40px;">
             <span class="d-none d-lg-inline-flex">John Doe</span>
           </a>
           <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
@@ -98,7 +98,7 @@
     <div class="container-fluid pt-4 px-4">
       <div class="bg-secondary text-center rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-4">
-          <h6 class="mb-0">Category</h6>
+          <h6 class="mb-0">Store</h6>
         </div>
         <div class="table-responsive">
           <table class="table text-start align-middle table-bordered table-hover mb-0">
@@ -106,16 +106,21 @@
             <tr class="text-white">
               <th scope="col">Id</th>
               <th scope="col">Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">Image</th>
               <th scope="col">Action</th>
             </tr>
             </thead>
-            <tbody th:each="category : ${categories}">
+            <tbody th:each="store : ${stores}">
             <tr>
-              <th scope="row"><a th:text="${category.getId()}">id</a></th>
-              <td><a th:text="${category.getCategory()}">firstName</a></td>
+              <th scope="row"><a th:text="${store.getId()}">id</a></th>
+              <td><a th:text="${store.getStore()}">firstName</a></td>
+              <td><a th:text="${store.getAddress()}">firstName</a></td>
+              <td><img th:src="${store.getImage()}" width="60px" height="70px"></img></td>
+
               <td style="width: 125px">
                 <div style="display: flex">
-                  <form style="margin-left: 5px" th:method="DELETE" th:action="@{/category/{id}(id=${category.getId()})}">
+                  <form style="margin-left: 5px" th:method="DELETE" th:action="@{/store/delete/{id}(id=${store.getId()})}">
                     <input class="btn btn-sm btn-primary" type="submit" value="Delete">
                   </form>
                 </div>
@@ -129,7 +134,7 @@
     <!-- Recent Sales End -->
 
     <center style="margin-top: 30px">
-      <a href="/category/create">Add</a>
+      <a href="/store/create">Add</a>
     </center>
 
     <!-- Footer Start -->

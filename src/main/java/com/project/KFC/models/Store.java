@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "tb_store")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Store {
+public class Store extends BaseModel{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
