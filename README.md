@@ -44,7 +44,7 @@ To start program
 
 ## Documentation RUSSIAN
 
-[Doc]([link](https://docs.google.com/document/d/13vGnux_UtOCq3LBbrOQqWana86pLasMEfZW2TyvpbUo/edit?usp=sharing))
+[Documentation](https://docs.google.com/document/d/13vGnux_UtOCq3LBbrOQqWana86pLasMEfZW2TyvpbUo/edit?usp=sharing)
 
 
 ## Feedback
