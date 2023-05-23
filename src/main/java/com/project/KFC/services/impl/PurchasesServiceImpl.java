@@ -59,6 +59,7 @@ public class PurchasesServiceImpl implements PurchasesService {
     public Long buy() {
         if(customerService.findById(customerService.getCustomer().getId()).getPurchases() != null) {
             if(findById(customerService.findById(customerService.getCustomer().getId()).getPurchases().getId()).getPurchasesStatus() == PurchasesStatusEnum.PROCESS) {
+                productsService.getBasket().clear();
                 return 0L;
             }
         }

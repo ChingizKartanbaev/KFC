@@ -56,6 +56,7 @@ public class ProductsServiceImpl implements ProductsService {
             if (value.getProducts().getId().equals(id)) {
                 value.setAmount(value.getAmount() + 1);
                 value.setCost(value.getCost() + findById(id).getPrice());
+                value.setProductId(id);
                 return basket;
             }
         }
@@ -76,10 +77,13 @@ public class ProductsServiceImpl implements ProductsService {
 
     @Override
     public double getTotalCost() {
-        double totalCost = 0;
+        double totalCost;
+        double value = 0;
         for (Basket item: basket) {
-            totalCost+= item.getCost();
+            value += item.getCost();
         }
+        totalCost = value;
+        value = 0;
         return totalCost;
     }
 
@@ -88,6 +92,7 @@ public class ProductsServiceImpl implements ProductsService {
         for (Basket item : basket) {
             if (item.getAmount() > 1) {
                 item.setAmount(item.getAmount() - 1);
+                item.setCost(item.getCost() - findById(item.getProductId()).getPrice());
                 break;
             }else {
                 if(item.getProducts().getId().equals(id)){

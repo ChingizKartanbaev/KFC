@@ -12,5 +12,14 @@ public class Basket {
     Products products;
     double cost;
     int amount;
+    Long productId;
 
+    @Override
+    public String toString() {
+        return "Basket{" +
+                "products=" + products +
+                ", cost=" + cost +
+                ", amount=" + amount +
+                '}';
+    }
 }
