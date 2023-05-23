@@ -2,27 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <title>Registration</title>
 </head>
 <body>
-<div class="container">
-    <form th:method="POST" th:action="@{/manager/give}" th:object="${task}">
-        <div class="mb-3">
-            <label for="task" class="form-label">Task</label>
-            <input type="text" class="form-control" id="task" th:field="*{task.task}" required>
-        </div>
-        <div class="mb-3">
-            <select th:field="*{employee.id}">
-                <option value="">Choose employee</option>
-                <option th:each="worker : ${employees}" th:value="${worker.id}" th:text="${worker.user.firstName}"></option>
-            </select>
-        </div>
+<form style="margin-top: 100px" th:method="POST" th:action="@{/manager/give}" th:object="${task}">
 
+    <h1>Give Task To Employee</h1>
+    <div class="formcontainer">
+        <hr/>
+        <div class="container">
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+            <label for="task"><strong>Task</strong></label>
+            <input type="text" placeholder="Enter Task" name="task" id="task" th:field="*{task.task}" required>
+
+            <label for="firstName">
+                <strong>Employee</strong>
+                <select th:field="*{employee.id}">
+                    <option value="">Choose employee</option>
+                    <option th:each="worker : ${employees}" id="firstName" th:value="${worker.id}" th:text="${worker.user.firstName + ' ' + worker.user.lastName}"></option>
+                </select>
+            </label>
+
+        </div>
+        <button type="submit">Give Task</button>
+    </div>
+</form>
 </body>
 </html>

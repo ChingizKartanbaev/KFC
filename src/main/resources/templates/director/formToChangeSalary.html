@@ -2,18 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Raise</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-  <div class="container">
+  <div style="margin-top: 250px" class="container">
     <form th:method="PUT" th:action="@{/director/{id}/Up(id=${worker.getId()})}" th:object="${worker}">
+      <label for="salary">Enter Salary To Raise</label>
       <div class="input-group mb-3">
         <span class="input-group-text">$</span>
         <span class="input-group-text" th:text="${worker.getSalary()}">0.00</span>
         <input  type="number" class="form-control" id="salary" name="salary"aria-label="Dollar amount (with dot and two decimal places)">
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-danger">Submit</button>
     </form>
   </div>
 </body>

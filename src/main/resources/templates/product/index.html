@@ -29,7 +29,7 @@
 
   <center>
     <div style="margin-top: 50px; margin-bottom: 50px">
-      <button><a href="/product/myCart">My cart</a></button>
+      <a href="/product/myCart" class="btn btn-danger">My cart</a>
     </div>
   </center>
 
@@ -41,8 +41,9 @@
           <div class="card-body">
             <h5 class="card-title" th:text="${product.getName()}">Card title</h5>
             <p class="card-text" th:text="${product.getDescription()}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+             <p class="card-text"><span>Price: </span> <span th:text="${product.getPrice()}">value</span></p>
             <form th:method="POST" th:action="@{/product/addToTheBasket/{id}(id=${product.getId()})}">
-              <input type="submit" value="Add to Cart">
+              <input type="submit" class="btn btn-primary" value="Add to Cart">
             </form>
           </div>
         </div>

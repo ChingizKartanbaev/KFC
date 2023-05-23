@@ -55,9 +55,6 @@
                         <a href="/about">About</a>
                     </li>
                     <li>
-                        <a href="recipe.html">Recipe</a>
-                    </li>
-                    <li>
                         <a href="/blog">Blog</a>
                     </li>
                     <li>
@@ -166,7 +163,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="full">
-                        <a class="logo" href="/"><img th:src="@{/images/logo.png}" alt="#"/></a>
+                        <a style="margin-left: 40px" class="logo" href="/"><img width="100px" height="30px" th:src="@{/images/logo.png}" alt="#"/></a>
                     </div>
                 </div>
                 <div class="col-md-9">
@@ -178,7 +175,6 @@
                                 <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="images/location_icon.png" alt="#"><a href="#">104 New york , USA</a></li>
                                 <li th:if="${user == null}" class="button_user"><a class="button active" href="/auth">Login</a><a class="button" href="/auth/reg">Register</a></li>
                                 <li th:if="${user != null}" class="button_user"><a th:href="@{/profile/{id}(id=${user.getUser().getId()})}"><span th:text="${user.getUser().firstName}"></span></a> <a class="button active" href="/auth/logout">Logout</a> </li>
-                                <li><img style="margin-right: 15px;" src="images/search_icon.png" alt="#"></li>
                                 <li>
                                     <button type="button" id="sidebarCollapse">
                                         <img src="images/menu_icon.png" alt="#">
@@ -206,7 +202,7 @@
                                             <div class="slider_cont">
                                                 <h3>Discover Restaurants<br>That deliver near You</h3>
                                                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                                                <a class="main_bt_border" href="#">Order Now</a>
+                                                <a th:if="${user != null}" class="main_bt_border" href="/store">Order Now</a>
                                             </div>
                                         </div>
                                         <div class="col-md-7">
@@ -222,7 +218,7 @@
                                             <div class="slider_cont">
                                                 <h3>Discover Restaurants<br>That deliver near You</h3>
                                                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                                                <a class="main_bt_border" href="#">Order Now</a>
+                                                <a th:if="${user != null}" class="main_bt_border" href="/store">Order Now</a>
                                             </div>
                                         </div>
                                         <div class="col-md-7 full text_align_center">
@@ -246,17 +242,6 @@
         </div>
     </div>
     <!-- end slider section -->
-
-
-
-
-
-
- 
-
-
-
-
 
 
     <!-- section -->
@@ -446,7 +431,6 @@
                         <ul class="lik">
                             <li class="active"> <a href="/">Home</a></li>
                             <li> <a href="/about">About</a></li>
-                            <li> <a href="recipe.html">Recipe</a></li>
                             <li> <a href="/blog">Blog</a></li>
                             <li> <a href="/contact">Contact us</a></li>
                         </ul>

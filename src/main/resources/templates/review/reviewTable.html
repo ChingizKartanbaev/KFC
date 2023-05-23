@@ -2,34 +2,41 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Review</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
 
-    <center>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Review</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-            </tr>
-            </thead>
-            <tbody th:each="review : ${reviews}">
-            <tr>
-                <th scope="row"><a th:text="${review.getId()}">id</a></th>
-                <td><a th:text="${review.getReview()}">firstName</a></td>
-                <td><a th:text="${review.getCustomer().getUser().getFirstName()}">firstName</a></td>
-                <td><a th:text="${review.getCustomer().getUser().getLastName()}">birthday</a></td>
-            </tr>
-            </tbody>
-        </table>
-        <a href="/employee">Back</a>
-    </center>
+<div style="margin-top: 40px" class="content">
 
+    <div class="container">
+        <h2 class="mb-5">Reviews</h2>
+
+        <div class="table-responsive">
+
+            <table class="table custom-table">
+                <thead>
+                <tr style="color: red">
+                    <th scope="col">Id</th>
+                    <th scope="col">Review</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                </tr>
+                </thead>
+                <tbody th:each="review : ${reviews}">
+                <tr scope="row">
+                    <th scope="row"><a th:text="${review.getId()}">id</a></th>
+                    <td><a th:text="${review.getReview()}">firstName</a></td>
+                    <td><a th:text="${review.getCustomer().getUser().getFirstName()}">firstName</a></td>
+                    <td><a th:text="${review.getCustomer().getUser().getLastName()}">birthday</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <a class="btn btn-danger" href="/employee" role="button">Back</a>
+    </div>
 </div>
+
 </body>
 </html>

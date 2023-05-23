@@ -1,28 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Edit</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <title>Registration</title>
 </head>
 <body>
 <form th:method="PUT" th:action="@{/director/updatePersonalData/{id}(id=${workerData.getId()})}" th:object="${workerData}">
-    <div>
-        <p class="ordering-title">Enter First Name:</p>
-        <input type="text" class="ordering-input" th:field="*{firstName}" id="firstName"/>
-    </div>
-    <div>
-        <p class="ordering-title">Enter First Name:</p>
-        <input type="text" class="ordering-input" th:field="*{lastName}" id="lastName"/>
-    </div>
-    <div>
-        <p class="ordering-title">Enter First Name:</p>
-        <input type="date" class="ordering-input" th:field="*{birhtdate}" id="birhtdate"/>
-    </div>
-    <div class="wrapper btn-wrapper">
-        <button type="submit" class="btn">Update</button>
+
+    <h1>Update Worker</h1>
+    <div class="formcontainer">
+        <hr/>
+        <div class="container">
+
+            <label for="firstName"><strong>First Name</strong></label>
+            <input type="text" placeholder="Enter First Name" name="firstName" id="firstName" th:field="*{firstName}" required>
+
+            <label for="lastName"><strong>Last Name</strong></label>
+            <input type="text" placeholder="Enter Last Name" name="lastName" id="lastName" th:field="*{lastName}" required>
+
+            <label for="birhtdate"><strong>Date Of Birth</strong></label>
+            <input type="date" placeholder="Enter Date Of Birth" name="birhtdate" id="birhtdate" th:field="*{birhtdate}" required>
+
+        </div>
+        <button type="submit">Update</button>
     </div>
 </form>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 </html>

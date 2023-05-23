@@ -33,7 +33,7 @@
 
     <div class="wrapper">
 
-     <div class="sidebar">
+        <div class="sidebar">
             <!-- Sidebar  -->
             <nav id="sidebar">
 
@@ -43,14 +43,11 @@
 
                 <ul class="list-unstyled components">
 
-                    <li >
+                    <li>
                         <a href="/">Home</a>
                     </li>
                     <li>
                         <a href="/about">About</a>
-                    </li>
-                    <li>
-                        <a href="recipe.html">Recipe</a>
                     </li>
                     <li>
                         <a href="/blog">Blog</a>
@@ -58,42 +55,133 @@
                     <li class="active">
                         <a href="/contact">Contact Us</a>
                     </li>
+                    <li>
+                        <div th:if="${employee == null}">
+                            <div th:if="${user != null}">
+                                <a href="/store">Make an order</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${employee == null}">
+                            <div th:if="${user != null}">
+                                <a href="/purchases/myPurchases">Check the order</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${employee == null}">
+                            <div th:if="${user != null}">
+                                <a th:href="@{/customer/review/{id}(id=${customer.getId()})}">Leave a review</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${customer == null}">
+                            <div th:if="${user != null && (employee.getPosition().getPosition().equals('Manager') || employee.getPosition().getPosition().equals('Director'))}">
+                                <a href="/employee/getAllWorkers">List of workers</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${customer == null}">
+                            <div th:if="${user != null && (employee.getPosition().getPosition().equals('Manager') || employee.getPosition().getPosition().equals('Director'))}">
+                                <a href="/review/findAll">View reviews</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${customer == null}">
+                            <div th:if="${user != null && employee.getPosition().getPosition().equals('Director')}">
+                                <a href="/director/workersControl">Add or Delete worker</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${customer == null}">
+                            <div th:if="${user != null && employee.getPosition().getPosition().equals('Director')}">
+                                <a href="/employee/showAllWorkers">Change salary</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${customer == null}">
+                            <div th:if="${user != null && employee.getPosition().getPosition().equals('Cashier')}">
+                                <a href="/purchases/getProcessPurchases">Show the list of orders</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${customer == null}">
+                            <div th:if="${user != null && employee.getPosition().getPosition().equals('Manager')}">
+                                <a href="/purchases/completed">Show a list of completed orders</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${customer == null}">
+                            <div th:if="${user != null && employee.getPosition().getPosition().equals('Cashier')}">
+                                <a th:href="@{/cashier/getMyTask/{id}(id=${employee.getId()})}">Show the list of tasks assigned to me</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${customer == null}">
+                            <div th:if="${user != null && employee.getPosition().getPosition().equals('Cashier')}">
+                                <a th:href="@{/cashier/getCompleteTask/{id}(id=${employee.getId()})}">Show a list of completed tasks</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${customer == null}">
+                            <div th:if="${user != null && employee.getPosition().getPosition().equals('Manager')}">
+                                <a href="/manager/giveTask">Give a task to an employee</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div th:if="${customer == null}">
+                            <div th:if="${user != null && employee.getPosition().getPosition().equals('Manager')}">
+                                <a href="/manager/allDoneTasks">Show completed tasks</a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
 
             </nav>
         </div>
 
-    <div id="content">
-    <!-- header -->
-    <header>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="full">
-                        <a class="logo" href="/"><img th:src="@{/images/logo.png}" alt="#" /></a>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="full">
-                        <div class="right_header_info">
-                            <ul>
-                                <li class="dinone">Contact Us : <img style="margin-right: 15px;margin-left: 15px;" th:src="@{/images/phone_icon.png}" alt="#"><a href="#">987-654-3210</a></li>
-                                <li class="dinone"><img style="margin-right: 15px;" th:src="@{/images/mail_icon.png}" alt="#"><a href="#">demo@gmail.com</a></li>
-                                <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" th:src="@{/images/location_icon.png}" alt="#"><a href="#">104 New york , USA</a></li>
-                                <li class="button_user"><a class="button active" href="#">Login</a><a class="button" href="#">Register</a></li>
-                                <li><img style="margin-right: 15px;" th:src="@{/images/search_icon.png}" alt="#"></li>
-                                <li>
-                                    <button type="button" id="sidebarCollapse">
-                                        <img th:src="@{/images/menu_icon.png}" alt="#">
-                                    </button>
-                                </li>
-                            </ul>
+        <div id="content">
+            <!-- header -->
+            <header>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="full">
+                                <a style="margin-left: 40px" class="logo" href="/"><img width="100px" height="30px" th:src="@{/images/logo.png}" alt="#"/></a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="full">
+                                <div class="right_header_info">
+                                    <ul>
+                                        <li class="dinone">Contact Us : <img style="margin-right: 15px;margin-left: 15px;" src="images/phone_icon.png" alt="#"><a href="#">996-555-261-203</a></li>
+                                        <li class="dinone"><img style="margin-right: 15px;" src="images/mail_icon.png" alt="#"><a href="#">kfc@gmail.com</a></li>
+                                        <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="images/location_icon.png" alt="#"><a href="#">104 New york , USA</a></li>
+                                        <li th:if="${user == null}" class="button_user"><a class="button active" href="/auth">Login</a><a class="button" href="/auth/reg">Register</a></li>
+                                        <li th:if="${user != null}" class="button_user"><a th:href="@{/profile/{id}(id=${user.getUser().getId()})}"><span th:text="${user.getUser().firstName}"></span></a> <a class="button active" href="/auth/logout">Logout</a> </li>
+                                        <li>
+                                            <button type="button" id="sidebarCollapse">
+                                                <img src="images/menu_icon.png" alt="#">
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </header>
+            </header>
     <!-- end header -->
     <!-- footer -->
     <fooetr>
@@ -142,7 +230,6 @@
                         <ul class="lik">
                             <li > <a href="/">Home</a></li>
                             <li> <a href="/about">About</a></li>
-                            <li> <a href="recipe.html">Recipe</a></li>
                             <li> <a href="/blog">blog</a></li>
                             <li class="active"> <a href="/contact">Contact us</a></li>
                         </ul>
