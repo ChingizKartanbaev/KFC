@@ -47,10 +47,6 @@ To start program
 [Documentation](https://docs.google.com/document/d/13vGnux_UtOCq3LBbrOQqWana86pLasMEfZW2TyvpbUo/edit?usp=sharing)
 
 
-## Feedback
 
-If you have any feedback, please reach out to us at @there will be our mail@
-
-![Без имени](https://user-images.githubusercontent.com/97016997/233830784-5f453e8d-c3d6-4a3f-a2f7-6295f93b07c3.png)
 
 
